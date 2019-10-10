@@ -16,25 +16,25 @@ class Migration(migrations.Migration):
             name='Miasto',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nazwa', models.CharField(help_text='Nazwa miasta', max_length=30, verbose_name='miasto')),
-                ('kod', models.CharField(help_text='Kod pocztowy', max_length=6)),
+                ('miasto', models.CharField(help_text='Nazwa Miasta', max_length=30, verbose_name='miasto')),
+                ('kod', models.CharField(help_text='Kod Pocztowy', max_length=8, verbose_name='kod')),
             ],
         ),
         migrations.CreateModel(
             name='Uczelnia',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nazwa', models.CharField(help_text='Nazwa uczelni', max_length=30, verbose_name='uczelnia')),
+                ('uczelnia', models.CharField(help_text='Nazwa Uczelni', max_length=50, verbose_name='uczelnia')),
             ],
         ),
         migrations.CreateModel(
             name='Student',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('imie', models.CharField(max_length=30, verbose_name='imię')),
-                ('nazwisko', models.CharField(max_length=30)),
-                ('roks', models.CharField(max_length=3, verbose_name='rok studiów')),
-                ('dochod', models.DecimalField(decimal_places=2, max_digits='6')),
+                ('imie', models.CharField(max_length=30, verbose_name='imie')),
+                ('nazwisko', models.CharField(max_length=30, verbose_name='nazwisko')),
+                ('rok', models.CharField(max_length=3, verbose_name='rok studiów')),
+                ('dochod', models.DecimalField(decimal_places=2, max_digits=6)),
                 ('miasto', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='studenci.Miasto')),
                 ('uczelnia', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='studenci.Uczelnia')),
             ],

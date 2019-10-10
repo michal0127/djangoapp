@@ -3,10 +3,13 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Witaj w aplikacji Studenci!")
-    # return render(request, 'pizza/index.html')
+    # return HttpResponse("<h1>Welcome to the django,</h1> we got fun n' games!")
+    return render(request, 'studenci/index.html')
 
+def miasta(request):
+    # return HttpResponse("We got everything you want, honey we know the name!")
+    return render(request, 'studenci/miasta.html')
 
-def news(request):
-    return HttpResponse("<h1>Nowości u studentów</h1>")
-    # return render(request, 'pizza/news.html')
+def uczelnie(request):
+    # return HttpResponse("We are the people that can find, whatever you may need!")
+    return render(request, 'studenci/uczelnie.html')
